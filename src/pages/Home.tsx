@@ -76,9 +76,12 @@ export default function Home() {
     return (
         <div className="container mx-auto flex flex-col justify-start items-center px-4 pt-6 sm:pt-8 max-w-2xl">
             <div className="flex flex-col items-center mb-6">
-                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-white text-center bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300">
-                    Whisper Web
-                </h1>
+                <div className="flex items-center gap-3 mb-2">
+                    <img src="/rx-logo.svg" alt="DocTalkRX Logo" className="h-12 w-12" />
+                    <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
+                        DocTalk<span className="text-blue-600">RX</span>
+                    </h1>
+                </div>
                 <h2 className="mt-1 text-sm sm:text-base text-center text-gray-600 dark:text-gray-400">
                     ML-powered speech recognition directly in your browser
                 </h2>
