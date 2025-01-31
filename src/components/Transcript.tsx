@@ -93,7 +93,11 @@ export default function Transcript({ transcribedData, audioData }: Props) {
                             {formatAudioTimestamp(chunk.timestamp[0])}
                         </div>
                         <div className='text-gray-900 dark:text-white'>
-                            {chunk.text}
+                            <div className='bg-gray-50 dark:bg-gray-800 rounded-lg p-4 max-h-96 overflow-y-auto'>
+                                <pre className="whitespace-pre-wrap text-sm text-gray-900 dark:text-white font-mono leading-relaxed">
+                                    {chunk.text}
+                                </pre>
+                            </div>
                         </div>
                     </div>
                 ))}
