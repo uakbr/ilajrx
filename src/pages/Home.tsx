@@ -8,7 +8,7 @@ import { useSettings } from "../contexts/SettingsContext";
 export default function Home() {
     const transcriber = useTranscriber();
     const [currentAudioData, setCurrentAudioData] = useState<AudioBuffer | undefined>();
-    const { addTranscription, temporaryTranscription, setTemporaryTranscription } = useTranscriptionHistory();
+    const { addTranscription, temporaryTranscription, setTemporaryTranscription, transcriptions } = useTranscriptionHistory();
     const { settings } = useSettings();
     const hasAutoSavedRef = useRef(false);
 
@@ -39,25 +39,34 @@ export default function Home() {
                 currentAudioData && 
                 !hasAutoSavedRef.current
             ) {
-                hasAutoSavedRef.current = true;
-                const title = `Transcription ${new Date().toLocaleString()}`;
-                addTranscription({
-                    timestamp: Date.now(),
-                    title,
-                    duration: currentAudioData.duration,
-                    format: settings.saveFormat || 'txt',
-                    content: transcriber.output.text,
-                    status: 'completed',
-                    metadata: {
-                        model: transcriber.model,
-                        language: transcriber.language,
-                        isAutoSaved: true,
-                        fileSize: currentAudioData.length * 4
-                    }
-                });
+                // Check if this transcription already exists by comparing content and timestamp
+                const currentTime = Date.now();
+                const existingTranscription = transcriptions.find(t => 
+                    t.content === transcriber.output?.text &&
+                    Math.abs(t.timestamp - currentTime) < 60000 // Within 1 minute
+                );
+
+                if (!existingTranscription) {
+                    hasAutoSavedRef.current = true;
+                    const title = `Transcription ${new Date().toLocaleString()}`;
+                    addTranscription({
+                        timestamp: currentTime,
+                        title,
+                        duration: currentAudioData.duration,
+                        format: settings.saveFormat || 'txt',
+                        content: transcriber.output.text,
+                        status: 'completed',
+                        metadata: {
+                            model: transcriber.model,
+                            language: transcriber.language,
+                            isAutoSaved: true,
+                            fileSize: currentAudioData.length * 4
+                        }
+                    });
+                }
             }
         };
-    }, [transcriber.output, currentAudioData, addTranscription, settings.saveFormat, transcriber.model, transcriber.language]);
+    }, [transcriber.output, currentAudioData, addTranscription, settings.saveFormat, transcriber.model, transcriber.language, transcriptions]);
 
     // Reset auto-save flag when new audio is loaded
     useEffect(() => {
