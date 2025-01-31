@@ -13,7 +13,7 @@ export default function Navigation() {
                             to="/"
                             className={`inline-flex items-center px-4 pt-1 text-sm font-medium ${
                                 isActive('/')
-                                    ? 'text-blue-600 dark:text-blue-400 border-t-2 border-blue-600 dark:border-blue-400'
+                                    ? 'text-primary dark:text-primary-light border-t-2 border-primary dark:border-primary-light'
                                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
                             }`}
                         >
@@ -26,7 +26,7 @@ export default function Navigation() {
                             to="/history"
                             className={`inline-flex items-center px-4 pt-1 text-sm font-medium ${
                                 isActive('/history')
-                                    ? 'text-blue-600 dark:text-blue-400 border-t-2 border-blue-600 dark:border-blue-400'
+                                    ? 'text-primary dark:text-primary-light border-t-2 border-primary dark:border-primary-light'
                                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
                             }`}
                         >
@@ -40,7 +40,7 @@ export default function Navigation() {
                             to="/settings"
                             className={`inline-flex items-center px-4 pt-1 text-sm font-medium ${
                                 isActive('/settings')
-                                    ? 'text-blue-600 dark:text-blue-400 border-t-2 border-blue-600 dark:border-blue-400'
+                                    ? 'text-primary dark:text-primary-light border-t-2 border-primary dark:border-primary-light'
                                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
                             }`}
                         >

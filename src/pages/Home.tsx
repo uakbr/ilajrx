@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="flex items-center gap-3 mb-2">
                     <img src="/rx-logo.svg" alt="DocTalkRX Logo" className="h-12 w-12" />
                     <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
-                        DocTalk<span className="text-blue-600">RX</span>
+                        DocTalk<span className="text-primary">RX</span>
                     </h1>
                 </div>
                 <h2 className="mt-1 text-sm sm:text-base text-center text-gray-600 dark:text-gray-400">

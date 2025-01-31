@@ -78,7 +78,7 @@ export default function History() {
                                             {formatDate(transcription.timestamp)}
                                         </span>
                                         {transcription.metadata.isAutoSaved && (
-                                            <span className="inline-flex items-center px-2 py-1 rounded-md bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                                            <span className="inline-flex items-center px-2 py-1 rounded-md bg-primary-light/10 dark:bg-primary-dark/30 text-primary">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                                                     <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z" />
                                                 </svg>
